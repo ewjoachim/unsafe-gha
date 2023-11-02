@@ -1,0 +1,12 @@
+on:
+  pull_request:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - run:
+        echo ${{ github.event.pull_request.title }}
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+        
