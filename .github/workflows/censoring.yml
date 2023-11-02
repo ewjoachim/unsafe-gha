@@ -1,0 +1,22 @@
+on:
+  push:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo $MY_SECRET
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+        
+    - run: echo ${MY_SECRET:0:4}; echo ${MY_SECRET:4:200}
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+        
+    - run: echo $MY_SECRET | base64
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+
+    - run: echo $MY_SECRET | base64 | base64
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
